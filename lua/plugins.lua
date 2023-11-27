@@ -2,6 +2,12 @@ require "helpers/globals"
 
 return { -- Mason {{{
 {
+    "lukas-reineke/lsp-format.nvim",
+    config = function()
+        require("lsp-format").setup {}
+    end
+},
+{
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
     dependencies = {"williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig"},
@@ -110,7 +116,8 @@ return { -- Mason {{{
     dependencies = {"nvim-telescope/telescope.nvim", "tpope/vim-dotenv", "MunifTanjim/nui.nvim"},
     cmd = {"Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel"},
     keys = {{"<leader>la", ":Laravel artisan<cr>"}, {"<leader>lr", ":Laravel routes<cr>"},
-            {"<leader>lm", ":Laravel related<cr>"}, {
+            {"<leader>lm", ":Laravel related<cr>"},
+			{"<Leader>l", "", desc = "Laravel"}, {
         "<leader>lt",
         function()
             require("laravel.tinker").send_to_tinker()
@@ -154,4 +161,11 @@ return { -- Mason {{{
             pre_hook = commentstring.create_pre_hook()
         } or {}
     end
-}}
+},
+{
+    "simrat39/symbols-outline.nvim",
+    config = function()
+        require "extensions.outline"
+    end
+}
+}

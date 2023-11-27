@@ -13,8 +13,10 @@ local sections = {
 
 nm('<Leader>q', '<cmd>confirm q<cr>', "Quit")
 nm('<Leader>n', '<cmd>enew<cr>', "New file")
-nm('<Leader>w', '<cmd>w<cr>', "Save")
+-- nm('<Leader>w', '<cmd>w<cr>', "Save")
 nm('<C-s>', '<cmd>w!<cr>', 'Force write')
+nm('<Leader>o', '<cmd>SymbolsOutline<cr>', "Symbols Outline")
+
 
 -- LSP {{{
 nm('K', '<cmd>lua vim.lsp.buf.hover()<CR>') -- Hover object
@@ -54,34 +56,22 @@ nm('<Leader>pm', '<cmd>Mason<cr>', 'Mason Installer')
 nm('<Leader>pM', '<cmd>MasonUpdateAll<cr>', 'Mason Update')
 
 nm('<Leader>e', '<cmd>Neotree toggle<cr>', 'Toggle Explorer')
-vim.keymap.set('n', '<Leader>o', 
-    function()
-      if vim.bo.filetype == "neo-tree" then
-        vim.cmd.wincmd "p"
-      else
-        vim.cmd.Neotree "focus" 
-      end
-    end, 
-    { desc = "Toggle Explorer Focus"}
-)
 
-vim.keymap.set('n', "<Leader>/", function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end, { desc = "Toggle comment line" } )
-vim.keymap.set('v', "<Leader>/", function() require('Comment.api').toggle.linewise(vim.fn.visualmode()) end, { desc = "Toggle comment for selection" })
+vim.keymap.set('n', "<Leader>/", function() require("Comment.api").toggle.linewise.current() end, { desc = "Toggle comment line" } )
+vim.keymap.set('v', "<Leader>/", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = "Toggle comment for selection" })
 
 vim.keymap.set('n', '<Leader>g', sections.g)
---   maps.n["]g"] = { function() require("gitsigns").next_hunk() end, desc = "Next Git hunk" }
---   maps.n["[g"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous Git hunk" }
---   maps.n["<leader>gl"] = { function() require("gitsigns").blame_line() end, desc = "View Git blame" }
---   maps.n["<leader>gL"] = { function() require("gitsigns").blame_line { full = true } end, desc = "View full Git blame" }
---   maps.n["<leader>gp"] = { function() require("gitsigns").preview_hunk() end, desc = "Preview Git hunk" }
---   maps.n["<leader>gh"] = { function() require("gitsigns").reset_hunk() end, desc = "Reset Git hunk" }
---   maps.n["<leader>gr"] = { function() require("gitsigns").reset_buffer() end, desc = "Reset Git buffer" }
---   maps.n["<leader>gs"] = { function() require("gitsigns").stage_hunk() end, desc = "Stage Git hunk" }
---   maps.n["<leader>gS"] = { function() require("gitsigns").stage_buffer() end, desc = "Stage Git buffer" }
---   maps.n["<leader>gu"] = { function() require("gitsigns").undo_stage_hunk() end, desc = "Unstage Git hunk" }
---   maps.n["<leader>gd"] = { function() require("gitsigns").diffthis() end, desc = "View Git diff" }
-
--- }}}
+vim.keymap.set('n', '<Leader>]g', function() require("gitsigns").next_hunk() end, { desc = "Next Git hunk" })
+vim.keymap.set('n', '<Leader>[g', function() require("gitsigns").prev_hunk() end, { desc = "Previous Git hunk" })
+vim.keymap.set('n', '<Leader>gl', function() require("gitsigns").blame_line() end, { desc = "View Git blame" })
+vim.keymap.set('n', '<Leader>gL', function() require("gitsigns").blame_line { full = true } end, { desc = "View full Git blame" })
+vim.keymap.set('n', '<Leader>gp', function() require("gitsigns").preview_hunk() end, { desc = "Preview Git hunk" })
+vim.keymap.set('n', '<Leader>gh', function() require("gitsigns").reset_hunk() end, { desc = "Reset Git hunk" })
+vim.keymap.set('n', '<Leader>gr', function() require("gitsigns").reset_buffer() end, { desc = "Reset Git buffer" })
+vim.keymap.set('n', '<Leader>gs', function() require("gitsigns").stage_hunk() end, { desc = "Stage Git hunk" })
+vim.keymap.set('n', '<Leader>gS', function() require("gitsigns").stage_buffer() end, { desc = "Stage Git buffer" })
+vim.keymap.set('n', '<Leader>gu', function() require("gitsigns").undo_stage_hunk() end, { desc = "Unstage Git hunk" })
+vim.keymap.set('n', '<Leader>gd', function() require("gitsigns").diffthis() end, { desc = "View Git diff" })
 
 vim.keymap.set('n', '<Leader>t', sections.t)
 nm('<Leader>th', "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split")

@@ -9,7 +9,6 @@ local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 
--- require("lsp-format").setup {}
 mason.setup()
 mason_lspconfig.setup({
     ensure_installed = {
@@ -24,13 +23,12 @@ mason_lspconfig.setup({
     },
 });
 
--- local on_attach = function(client, bufnr)
---     require("lsp-format").on_attach(client, bufnr)
-
---     -- ... custom code ...
--- end
+local on_attach = function(client, bufnr)
+    require("lsp-format").on_attach(client, bufnr)
+end
 
 -- Setup every needed language server in lspconfig
 mason_lspconfig.setup_handlers {function(server_name)
     lspconfig[server_name].setup{}
+    require("lspconfig")[server_name].setup { on_attach = on_attach }
 end}

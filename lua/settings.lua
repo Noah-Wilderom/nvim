@@ -8,7 +8,7 @@ cmd [[autocmd FileType * setlocal formatoptions-=cro]]
 
 cmd [[set number]]
 
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
 -- Tabs {{{
 opt.expandtab = false -- Use tabs by default
@@ -23,7 +23,7 @@ opt.fixeol = false -- Turn off appending new line in the end of a file
 -- }}}
 
 -- Folding {{{
-opt.foldmethod = 'syntax'
+-- opt.foldmethod = 'syntax'
 -- }}}
 
 -- Search {{{

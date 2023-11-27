@@ -44,11 +44,11 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = {'mode'},
-        lualine_b = {{ 'filename', file_status = false, path = 4 }, "filetype"},
+        lualine_b = {{ 'filename', file_status = true, path = 4 }, "filetype"},
         lualine_c = {},
         lualine_x = {'ctime'},
-        lualine_y = {'branch'},
-        lualine_z = {'progress'}
+        lualine_y = {'progress'},
+        lualine_z = {'branch'}
     },
     inactive_sections = {
         lualine_a = {},
