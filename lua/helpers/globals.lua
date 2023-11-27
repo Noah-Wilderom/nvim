@@ -5,3 +5,5 @@ fn = vim.fn; -- Vim function
 g = vim.g; -- Vim globals
 opt = vim.opt; -- Vim optionals
 theme = "sonokai"
+discordEnabled = false
+laravelEnabled = true

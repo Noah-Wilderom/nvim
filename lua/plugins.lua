@@ -84,6 +84,7 @@ return { -- Mason {{{
 -- Theme: Sonokai {{{
 {
     "sainnhe/sonokai",
+    enabled = theme == "sonokai",
     lazy = false,
     config = function()
         require "extensions.colorscheme.sonokai"
@@ -91,6 +92,7 @@ return { -- Mason {{{
 }, -- }}}
 {
     "ellisonleao/gruvbox.nvim",
+    enabled = theme == "gruvbox",
     lazy = false,
     config = function()
         require "extensions.colorscheme.gruvbox"
@@ -118,6 +120,7 @@ return { -- Mason {{{
     config = true
 }, {
     "adalessa/laravel.nvim",
+    enabled = laravelEnabled,
     dependencies = {"nvim-telescope/telescope.nvim", "tpope/vim-dotenv", "MunifTanjim/nui.nvim"},
     cmd = {"Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel"},
     keys = {{"<leader>la", ":Laravel artisan<cr>"}, {"<leader>lr", ":Laravel routes<cr>"},
@@ -176,6 +179,7 @@ return { -- Mason {{{
     end
 }, {
     "andweeb/presence.nvim",
+    enabled = discordEnabled,
     config = function()
         require("presence").setup({
             -- General options
