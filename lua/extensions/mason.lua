@@ -4,7 +4,6 @@
   See: https://github.com/williamboman/mason.nvim
 ]] 
 
-
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
@@ -19,7 +18,7 @@ mason_lspconfig.setup({
         "pyright", -- LSP for Python
         "volar", -- LSP for Vue
         "gopls", -- LSP for Go
-        "intelephense"
+        "intelephense" -- LSP for PHP
     },
 });
 

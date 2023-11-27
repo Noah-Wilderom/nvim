@@ -13,26 +13,55 @@ local colors = {
     magenta = '#df89dd'
 }
 
-
 local Nrd = {
-  normal = {
-    a = { fg = colors.blk, bg = colors.cyan },
-    b = { fg = colors.gray,  bg = colors.black },
-    c = { fg = colors.green, bg = colors.transparent },
-    z = { fg = colors.gray, bg = colors.black },
-  },
-  insert = { 
-        a = { fg = colors.blk, bg = colors.yellow },
-        z = { fg = colors.gray, bg = colors.black }
-  },
-  visual = { 
-        a = { fg = colors.blk, bg = colors.green },
-        z = { fg = colors.gray, bg = colors.black }
-  },
-  replace = { 
-        a = { fg = colors.blk, bg = colors.green },
-        z = { fg = colors.gray, bg = colors.black } 
-  },
+    normal = {
+        a = {
+            fg = colors.blk,
+            bg = colors.cyan
+        },
+        b = {
+            fg = colors.gray,
+            bg = colors.black
+        },
+        c = {
+            fg = colors.green,
+            bg = colors.transparent
+        },
+        z = {
+            fg = colors.gray,
+            bg = colors.black
+        }
+    },
+    insert = {
+        a = {
+            fg = colors.blk,
+            bg = colors.yellow
+        },
+        z = {
+            fg = colors.gray,
+            bg = colors.black
+        }
+    },
+    visual = {
+        a = {
+            fg = colors.blk,
+            bg = colors.green
+        },
+        z = {
+            fg = colors.gray,
+            bg = colors.black
+        }
+    },
+    replace = {
+        a = {
+            fg = colors.blk,
+            bg = colors.green
+        },
+        z = {
+            fg = colors.gray,
+            bg = colors.black
+        }
+    }
 }
 
 require('lualine').setup {
@@ -40,11 +69,15 @@ require('lualine').setup {
         icons_enabled = true,
         theme = 'auto',
         component_separators = '',
-        globalstatus = true,
+        globalstatus = true
     },
     sections = {
         lualine_a = {'mode'},
-        lualine_b = {{ 'filename', file_status = true, path = 4 }, "filetype"},
+        lualine_b = {{
+            'filename',
+            file_status = true,
+            path = 4
+        }, "filetype"},
         lualine_c = {},
         lualine_x = {'ctime'},
         lualine_y = {'progress'},
