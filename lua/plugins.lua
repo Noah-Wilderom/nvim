@@ -208,4 +208,20 @@ return { -- Mason {{{
             line_number_text = "Line %s out of %s" -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
         })
     end
-}}
+},
+{
+    "zbirenbaum/copilot.lua",
+    enabled = copilotEnabled,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+        require "extensions.copilot"
+    end
+},
+-- {
+--     "github/copilot.vim",
+--     enabled = copilotEnabled,
+--     cmd = "Copilot",
+--     event = "InsertEnter",
+-- },
+}

@@ -106,6 +106,10 @@ end, {
     desc = "Git status"
 })
 
+-- Copilot {{{
+-- }}}
+
+
 -- Plugin Manager
 vim.keymap.set('n', '<Leader>p', sections.p)
 vim.keymap.set('n', '<Leader>pi', function()
