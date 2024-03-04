@@ -11,15 +11,15 @@ cmd [[set number]]
 cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
 -- Tabs {{{
-opt.expandtab = false -- Use tabs by default
-opt.shiftwidth = 4 -- Set amount of space characters, when we press "<" or ">"
-opt.tabstop = 4 -- 1 tab equal 4 spaces
+opt.expandtab = false  -- Use tabs by default
+opt.shiftwidth = 4     -- Set amount of space characters, when we press "<" or ">"
+opt.tabstop = 4        -- 1 tab equal 4 spaces
 opt.smartindent = true -- Turn on smart indentation. See in the docs for more info
 -- }}}
 
 -- Clipboard {{{
 opt.clipboard = 'unnamedplus' -- Use system clipboard
-opt.fixeol = false -- Turn off appending new line in the end of a file
+opt.fixeol = false            -- Turn off appending new line in the end of a file
 -- }}}
 
 -- Folding {{{
@@ -27,10 +27,10 @@ opt.fixeol = false -- Turn off appending new line in the end of a file
 -- }}}
 
 -- Search {{{
-opt.ignorecase = true -- Ignore case if all characters in lower case
+opt.ignorecase = true  -- Ignore case if all characters in lower case
 opt.joinspaces = false -- Join multiple spaces in search
-opt.smartcase = true -- When there is a one capital letter search for exact match
-opt.showmatch = true -- Highlight search instances
+opt.smartcase = true   -- When there is a one capital letter search for exact match
+opt.showmatch = true   -- Highlight search instances
 -- }}}
 
 -- Window {{{
@@ -44,12 +44,12 @@ opt.wildmode = "longest:full,full"
 -- }}}
 
 -- Default Plugins {{{
-local disabled_built_ins = {"netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "gzip", "zip", "zipPlugin",
-                            "tar", "tarPlugin", "getscript", "getscriptPlugin", "vimball", "vimballPlugin",
-                            "2html_plugin", "logipat", "rrhelper", "spellfile_plugin", "matchit"}
+local disabled_built_ins = { "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "gzip", "zip", "zipPlugin",
+  "tar", "tarPlugin", "getscript", "getscriptPlugin", "vimball", "vimballPlugin",
+  "2html_plugin", "logipat", "rrhelper", "spellfile_plugin", "matchit" }
 
 for _, plugin in pairs(disabled_built_ins) do
-    g["loaded_" .. plugin] = 1
+  g["loaded_" .. plugin] = 1
 end
 -- }}}
 
