@@ -22,6 +22,7 @@ nm('K', '<cmd>lua vim.lsp.buf.hover()<CR>') -- Hover object
 nm('ga', '<cmd>lua vim.lsp.buf.code_action()<CR>') -- Code actions
 nm('gR', '<cmd>lua vim.lsp.buf.rename()<CR>') -- Rename an object
 nm('gD', '<cmd>lua vim.lsp.buf.declaration()<cr>') -- Go to declaration
+nm('gd', '<cmd>lua vim.lsp.buf.definition()<cr>') -- Go to declaration
 -- }}}
 
 -- Telescope {{{
@@ -64,7 +65,7 @@ vim.keymap.set('n', '<Leader>fh', function()
 end, {
     desc = "Find help"
 })
-vim.keymap.set('n', '<Leader>fm', function()
+vim.keymap.set('n', '<Leader>fma', function()
     require("telescope.builtin").man_pages()
 end, {
     desc = "Find man"
